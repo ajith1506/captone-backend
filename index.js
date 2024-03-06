@@ -10,11 +10,10 @@ const serviceRoute = require("./routes/services");
 const productRoute = require("./routes/products");
 const userRoute = require("./routes/user");
 const orderRoute = require("./routes/order");
-const MONGO_URL = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@ajithkumar.v4b0poy.mongodb.net/?retryWrites=true&w=majority&appName=ajithkumar`;
 // console.log(MONGO_URL)
 
 mongoose
-  .connect(MONGO_URL)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log("database connection established"))
   .catch((err) => console.log("error connecting", err));
 
