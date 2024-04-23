@@ -36,7 +36,7 @@ router.get("/get/:id", async (req, res, next) => {
 // UPDATE DATA TO THE SERVICES
 router.put("/update/:id", verifyAdmin, async (req, res, next) => {
   try {
-    const data = await Service.findByIdAndUpdate(
+    const data = await Services.findByIdAndUpdate(
       req.params.id,
       {
         $set: req.body,
@@ -44,7 +44,6 @@ router.put("/update/:id", verifyAdmin, async (req, res, next) => {
       { new: true }
     );
     res.status(200).json(data);
-    console.log(data);
   } catch (err) {
     next(err);
     console.log(err);
